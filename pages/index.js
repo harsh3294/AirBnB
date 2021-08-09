@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import Banner from "../components/Banner";
 import SmallCard from "../components/SmallCard";
 import MediumCard from "../components/MediumCard";
+import LargeCard from "../components/LargeCard";
+import LargeCardImage1 from "../assets/LargeCardImage1.webp";
 export default function Home({ exploreData, cardsData }) {
   console.table(cardsData);
   return (
@@ -35,6 +37,12 @@ export default function Home({ exploreData, cardsData }) {
             ))}
           </div>
         </section>
+        <LargeCard
+          img={LargeCardImage1}
+          title="The Greatest Outdoors"
+          description="Wishlists curated by Airbnb."
+          buttonText="Get Inspired"
+        />
       </main>
     </div>
   );
