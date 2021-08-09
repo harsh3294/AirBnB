@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AirbnbLogo from "../assest/AirbnbLogo.webp";
+import AirbnbLogo from "../assets/AirbnbLogo.webp";
 import {
   SearchIcon,
   GlobeAltIcon,
