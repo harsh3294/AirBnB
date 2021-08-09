@@ -5,6 +5,7 @@ import SmallCard from "../components/SmallCard";
 import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
 import LargeCardImage1 from "../assets/LargeCardImage1.webp";
+import Footer from "../components/Footer";
 export default function Home({ exploreData, cardsData }) {
   console.table(cardsData);
   return (
@@ -44,6 +45,7 @@ export default function Home({ exploreData, cardsData }) {
           buttonText="Get Inspired"
         />
       </main>
+      <Footer />
     </div>
   );
 }
