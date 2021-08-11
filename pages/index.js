@@ -7,7 +7,6 @@ import LargeCard from "../components/LargeCard";
 import LargeCardImage1 from "../assets/LargeCardImage1.webp";
 import Footer from "../components/Footer";
 export default function Home({ exploreData, cardsData }) {
-  console.table(cardsData);
   return (
     <div>
       <Head>
