@@ -11,7 +11,9 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { useState } from "react";
-function Header() {
+import { useRouter } from "next/dist/client/router";
+function Header({ placeholder = "Start your seach" }) {
+  const router = useRouter();
   const [searchInput, setSearchInput] = useState();
   const [startDate, setStartDate] = useState(new Date());
 
@@ -30,10 +32,25 @@ function Header() {
   const resetInput = () => {
     setSearchInput("");
   };
+
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests,
+      },
+    });
+  };
   return (
     <>
       <header className="sticky h-20 top-0 z-50 grid grid-cols-3 bg-white shadow-md px-7 lg:px-20 py-3 sm:px-20 md:px-10 ">
-        <div className="relative flex items-center h-10 cursor-pointer my-auto">
+        <div
+          className="relative flex items-center h-10 cursor-pointer my-auto"
+          onClick={() => router.push("/")}
+        >
           <Image
             src={AirbnbLogo}
             layout="fill"
@@ -46,7 +63,7 @@ function Header() {
             type="text"
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
-            placeholder="Start your search"
+            placeholder={placeholder}
             className="pl-5 bg-transparent outline-none  flex-grow text-sm text-gray-600 placeholder-gray-400"
           />
           <SearchIcon className="hidden md:inline-flex h-10 bg-red-500 rounded-full p-2 text-white cursor-pointer mx-4" />
@@ -91,7 +108,9 @@ function Header() {
                 >
                   Cancel
                 </button>
-                <button className="flex-grow text-red-400">Search</button>
+                <button className="flex-grow text-red-400" onClick={search}>
+                  Search
+                </button>
               </div>
             </div>
           </>
